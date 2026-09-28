@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jardin d'Éden@SCORPION</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root {
+    --rose-deep: #e0356f;
+    --rose-mid: #ec6b95;
+    --rose-soft: #fbdce7;
+    --cream: #fff7f9;
+    --card: #ffffff;
+    --ink: #33202a;
+    --ink-soft: #6e5561;
+    --blue: #0d47a1;
+    --blue-soft: #e7edfa;
+    --green: #1b8a5a;
+    --green-soft: #e4f6ee;
+    --border: #f0dbe3;
+    --shadow: rgba(51, 32, 42, 0.10);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --rose-deep: #ff6f9d;
+      --rose-mid: #ff8fb3;
+      --rose-soft: #3a1f2b;
+      --cream: #211318;
+      --card: #2a1720;
+      --ink: #f7e9ee;
+      --ink-soft: #cfa8b6;
+      --blue: #8fb3ff;
+      --blue-soft: #1c2740;
+      --green: #6fdba8;
+      --green-soft: #143226;
+      --border: #4a2c38;
+      --shadow: rgba(0, 0, 0, 0.35);
+      color-scheme: dark;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  img { max-width: 100%; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    padding-inline: 20px;
+    padding-block: 40px;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  header.hero {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .mark {
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--rose-deep), var(--rose-mid));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 24px var(--shadow);
+  }
+  .mark svg { width: 34px; height: 34px; }
+
+  h1.name {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 6vw, 2.6rem);
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+    color: var(--rose-deep);
+  }
+  .company {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+  .tagline {
+    margin-top: 14px;
+    font-size: 0.98rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin-inline: auto;
+    line-height: 1.55;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 36px;
+  }
+  @media (max-width: 620px) {
+    .cards { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 26px 22px;
+    box-shadow: 0 8px 22px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    align-self: flex-start;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border-radius: 999px;
+  }
+  .badge.staff { background: var(--blue-soft); color: var(--blue); }
+  .badge.client { background: var(--green-soft); color: var(--green); }
+
+  .card h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.32rem;
+    margin: 0;
+  }
+  .card p.desc {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    margin: 0;
+    min-height: 3.2em;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 0.98rem;
+    padding: 13px 18px;
+    border-radius: 12px;
+    color: #fff;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+  .btn.staff { background: linear-gradient(135deg, var(--blue), #2e6bd6); box-shadow: 0 8px 18px rgba(13,71,161,0.28); }
+  .btn.client { background: linear-gradient(135deg, var(--green), #24b078); box-shadow: 0 8px 18px rgba(27,138,90,0.28); }
+  .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+  .meta {
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+
+  .guide {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 28px 26px;
+    box-shadow: 0 8px 22px var(--shadow);
+    margin-bottom: 28px;
+  }
+  .guide h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin: 0 0 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  ol.steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  ol.steps li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+  ol.steps .num {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--rose-soft);
+    color: var(--rose-deep);
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  ol.steps strong { color: var(--ink); }
+
+  .note {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: var(--rose-soft);
+    border-radius: 14px;
+    padding: 14px 16px;
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .note svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; color: var(--rose-deep); }
+
+  footer {
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    padding-top: 8px;
+  }
+
+  .laurel {
+    position: relative;
+    text-align: center;
+    margin: 6px 0 30px;
+    color: var(--rose-mid);
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .laurel::before, .laurel::after {
+    content: "❀";
+    margin: 0 10px;
+    opacity: 0.6;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 21c-4-3-7-7-7-11a7 7 0 0 1 14 0c0 4-3 8-7 11Z"/>
+        <path d="M12 12v9"/>
+      </svg>
+    </div>
+    <h1 class="name">Jardin d'Éden</h1>
+    <div class="company">@SCORPION</div>
+    <p class="tagline">Téléchargez l'application sur votre téléphone Android. Choisissez la version qui correspond à votre rôle ci-dessous.</p>
+  </header>
+
+  <div class="cards">
+    <div class="card">
+      <span class="badge staff">Équipe</span>
+      <h2>Application Employés</h2>
+      <p class="desc">Pour les commerciaux, DAF, DG, PDG et administrateurs — connexion avec l'identifiant fourni par votre direction.</p>
+      <a class="btn staff" href="https://github.com/jujuclaire-sys/scr-downloads/releases/download/v1.0/app-arm64-v8a-staff-release.apk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+        Télécharger
+      </a>
+      <div class="meta">Fichier .apk · Android</div>
+    </div>
+
+    <div class="card">
+      <span class="badge client">Client</span>
+      <h2>Application Client</h2>
+      <p class="desc">Pour suivre vos versements et consulter vos reçus — connexion avec votre numéro de téléphone.</p>
+      <a class="btn client" href="https://github.com/jujuclaire-sys/scr-downloads/releases/download/v1.0/app-arm64-v8a-client-release.apk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+        Télécharger
+      </a>
+      <div class="meta">Fichier .apk · Android</div>
+    </div>
+  </div>
+
+  <div class="laurel">Installation</div>
+
+  <div class="guide">
+    <h3>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" style="color:var(--rose-deep)"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+      Étapes d'installation
+    </h3>
+    <ol class="steps">
+      <li><span class="num">1</span><span>Appuyez sur <strong>Télécharger</strong> ci-dessus depuis votre téléphone Android.</span></li>
+      <li><span class="num">2</span><span>Une fois téléchargé, ouvrez le fichier depuis les <strong>notifications</strong> ou votre application <strong>Fichiers</strong>.</span></li>
+      <li><span class="num">3</span><span>Si un message <strong>« Installation bloquée »</strong> apparaît, appuyez sur <strong>Paramètres</strong>, puis activez <strong>« Autoriser cette source »</strong>.</span></li>
+      <li><span class="num">4</span><span>Revenez en arrière et appuyez sur <strong>Installer</strong>.</span></li>
+      <li><span class="num">5</span><span>Ouvrez l'application et connectez-vous.</span></li>
+    </ol>
+  </div>
+
+  <div class="note">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+    <span>Ce message de sécurité est normal : il apparaît pour toute application installée en dehors du Play Store. L'application reste sûre — elle vient directement de l'équipe SCR.</span>
+  </div>
+
+  <footer>Jardin d'Éden@SCORPION</footer>
+</div>
+
+</body>
+</html>
