@@ -104,11 +104,14 @@
 
   .cards {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 18px;
     margin-bottom: 36px;
   }
-  @media (max-width: 620px) {
+  @media (max-width: 780px) {
+    .cards { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 480px) {
     .cards { grid-template-columns: 1fr; }
   }
 
@@ -137,6 +140,7 @@
   }
   .badge.staff { background: var(--blue-soft); color: var(--blue); }
   .badge.client { background: var(--green-soft); color: var(--green); }
+  .badge.desktop { background: var(--rose-soft); color: var(--rose-deep); }
 
   .card h2 {
     font-family: 'Fraunces', serif;
@@ -170,6 +174,7 @@
   .btn:active { transform: translateY(0); }
   .btn.staff { background: linear-gradient(135deg, var(--blue), #2e6bd6); box-shadow: 0 8px 18px rgba(13,71,161,0.28); }
   .btn.client { background: linear-gradient(135deg, var(--green), #24b078); box-shadow: 0 8px 18px rgba(27,138,90,0.28); }
+  .btn.desktop { background: linear-gradient(135deg, var(--rose-deep), var(--rose-mid)); box-shadow: 0 8px 18px rgba(224,53,111,0.28); }
   .btn svg { width: 18px; height: 18px; flex-shrink: 0; }
 
   .meta {
@@ -331,7 +336,7 @@
     </div>
     <h1 class="name">Jardin d'Éden</h1>
     <div class="company">@SCORPION</div>
-    <p class="tagline">Téléchargez l'application sur votre téléphone Android. Choisissez la version qui correspond à votre rôle ci-dessous.</p>
+    <p class="tagline">Téléchargez l'application sur votre téléphone Android ou votre ordinateur. Choisissez la version qui correspond à votre rôle ci-dessous.</p>
   </header>
 
   <div class="cards">
@@ -356,6 +361,17 @@
       </a>
       <div class="meta">Fichier .apk · Android</div>
     </div>
+
+    <div class="card">
+      <span class="badge desktop">Bureau</span>
+      <h2>Application Desktop</h2>
+      <p class="desc">La version complète (équipe + client) pour ordinateur Windows.</p>
+      <a class="btn desktop" href="https://github.com/jujuclaire-sys/scr-downloads/releases/download/v1.0/SCR_Windows.zip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+        Télécharger
+      </a>
+      <div class="meta">Fichier .zip · Windows</div>
+    </div>
   </div>
 
   <div class="laurel">Installation</div>
@@ -363,7 +379,7 @@
   <div class="guide">
     <h3>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" style="color:var(--rose-deep)"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-      Étapes d'installation
+      Étapes d'installation (Android)
     </h3>
     <ol class="steps">
       <li><span class="num">1</span><span>Appuyez sur <strong>Télécharger</strong> ci-dessus depuis votre téléphone Android.</span></li>
@@ -377,6 +393,19 @@
   <div class="note">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
     <span>Ce message de sécurité est normal : il apparaît pour toute application installée en dehors du Play Store. L'application reste sûre — elle vient directement de l'équipe SCR.</span>
+  </div>
+
+  <div class="guide">
+    <h3>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" style="color:var(--rose-deep)"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/></svg>
+      Installation sur Windows
+    </h3>
+    <ol class="steps">
+      <li><span class="num">1</span><span>Téléchargez <strong>SCR_Windows.zip</strong> ci-dessus.</span></li>
+      <li><span class="num">2</span><span>Faites un clic droit sur le fichier téléchargé → <strong>« Extraire tout... »</strong> — gardez tous les fichiers ensemble dans le même dossier.</span></li>
+      <li><span class="num">3</span><span>Ouvrez le dossier extrait et double-cliquez sur <strong>scr_final.exe</strong>.</span></li>
+      <li><span class="num">4</span><span>Si Windows affiche « Windows a protégé votre ordinateur », cliquez sur <strong>Informations complémentaires</strong> puis <strong>Exécuter quand même</strong>.</span></li>
+    </ol>
   </div>
 
   <div class="license">
