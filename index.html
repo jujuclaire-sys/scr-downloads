@@ -24,7 +24,7 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
       --rose-deep: #ff6f9d;
       --rose-mid: #ff8fb3;
       --rose-soft: #3a1f2b;
@@ -41,10 +41,24 @@
       color-scheme: dark;
     }
   }
+  :root[data-theme="dark"] {
+    --rose-deep: #ff6f9d;
+    --rose-mid: #ff8fb3;
+    --rose-soft: #3a1f2b;
+    --cream: #211318;
+    --card: #2a1720;
+    --ink: #f7e9ee;
+    --ink-soft: #cfa8b6;
+    --blue: #8fb3ff;
+    --blue-soft: #1c2740;
+    --green: #6fdba8;
+    --green-soft: #143226;
+    --border: #4a2c38;
+    --shadow: rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
+  }
 
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  img { max-width: 100%; }
 
   body {
     background: var(--cream);
@@ -342,10 +356,48 @@
     max-width: 56ch;
     margin: 0 auto;
   }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--rose-deep);
+    margin: 48px 0 22px;
+  }
+  .section-title.first { margin-top: 0; }
+
+  .history {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px 26px;
+    box-shadow: 0 8px 22px var(--shadow);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .history p {
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin: 0;
+  }
+  .history .date {
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--rose-mid);
+  }
+  .history .founder-name {
+    color: var(--ink);
+    font-weight: 700;
+  }
 </style>
 </head>
 <body>
-
 <div class="wrap">
   <header class="hero">
     <div class="mark">
@@ -356,8 +408,14 @@
     </div>
     <h1 class="name">Jardin d'Éden</h1>
     <div class="company">@SCORPION</div>
-    <p class="tagline">Téléchargez l'application sur votre téléphone Android ou votre ordinateur. Choisissez la version qui correspond à votre rôle ci-dessous.</p>
+    <p class="tagline">Téléchargez l'application sur votre téléphone Android. Choisissez la version qui correspond à votre rôle ci-dessous.</p>
   </header>
+
+  <h2 class="section-title first">Nos produits</h2>
+  <div class="about" style="margin-bottom: 28px;">
+    <h3>SCR — Système de Contrôle des Recouvrements</h3>
+    <p>Notre premier produit : l'application de gestion des versements du Jardin d'Éden. Sur le terrain, chaque commercial enregistre les paiements par signature ou par code client, même sans réseau — un reçu est généré automatiquement dès la synchronisation. Côté direction, DAF, DG et PDG suivent en temps réel l'activité de chaque entreprise, zone et commercial. Les clients, eux, consultent à tout moment l'historique de leurs versements et leurs reçus depuis leur propre téléphone.</p>
+  </div>
 
   <div class="cards">
     <div class="card">
@@ -399,7 +457,7 @@
   <div class="guide">
     <h3>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="20" height="20" style="color:var(--rose-deep)"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-      Étapes d'installation (Android)
+      Étapes d'installation
     </h3>
     <ol class="steps">
       <li><span class="num">1</span><span>Appuyez sur <strong>Télécharger</strong> ci-dessus depuis votre téléphone Android.</span></li>
@@ -443,13 +501,18 @@
     </div>
   </div>
 
-  <div class="about">
-    <h3>À propos de SCR</h3>
-    <p><strong>SCR</strong> — Système de Contrôle des Recouvrements — est l'application de gestion des versements du Jardin d'Éden. Sur le terrain, chaque commercial enregistre les paiements par signature ou par code client, même sans réseau — un reçu est généré automatiquement dès la synchronisation. Côté direction, DAF, DG et PDG suivent en temps réel l'activité de chaque entreprise, zone et commercial. Les clients, eux, consultent à tout moment l'historique de leurs versements et leurs reçus depuis leur propre téléphone.</p>
+  <h2 class="section-title">Historique</h2>
+  <div class="history">
+    <div>
+      <div class="date">Créée le 1ᵉʳ octobre 2026 à Bafoussam, Cameroun</div>
+      <p>Jardin d'Éden est une entreprise de solutions logicielles pour toutes les entreprises. Nous analysons les données de vos entreprises et de vos clients sur le terrain pour vous proposer des solutions logicielles viables, adaptées au contexte socioculturel de vos structures — pour un fonctionnement plus adapté, une meilleure connexion entre les différents acteurs, et un contrôle des données de terrain plus aisé pour les responsables de nos entreprises clientes.</p>
+    </div>
+    <div>
+      <p><span class="founder-name">Son fondateur, Ngansop Junior</span>, né le 12 novembre 2001 à Bafoussam, au Cameroun, est un jeune entrepreneur camerounais. Dès l'âge de 15 ans, alors en classe de seconde C, il s'est demandé ce qu'il pouvait faire pour son pays. Il a alors imaginé une entreprise capable de rivaliser avec les plus grandes, à l'image d'Apple, pour contribuer à améliorer la société, augmenter le PIB de son Afrique, et changer ainsi le destin de millions d'Africains.</p>
+    </div>
   </div>
 
   <footer>Jardin d'Éden@SCORPION</footer>
 </div>
-
 </body>
 </html>
