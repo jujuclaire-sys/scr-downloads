@@ -395,6 +395,92 @@
     color: var(--ink);
     font-weight: 700;
   }
+
+  .contract {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 8px 22px var(--shadow);
+    margin-bottom: 28px;
+    overflow: hidden;
+  }
+  .contract summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 20px 24px;
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--ink);
+  }
+  .contract summary::-webkit-details-marker { display: none; }
+  .contract summary svg { width: 20px; height: 20px; color: var(--rose-deep); transition: transform 0.2s ease; flex-shrink: 0; }
+  .contract[open] summary svg { transform: rotate(180deg); }
+  .contract-body {
+    padding: 0 24px 26px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--ink);
+    overflow-wrap: anywhere;
+  }
+  .contract-lead {
+    background: var(--rose-soft);
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-weight: 600;
+  }
+  .contract-body h4 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--rose-deep);
+    margin: 22px 0 8px;
+  }
+  .contract-body p { margin: 8px 0; }
+  .contract-body ul, .contract-body ol { padding-left: 22px; margin: 8px 0; }
+  .contract-body li { margin: 6px 0; }
+  .contract-body .formula {
+    margin: 8px 0;
+    padding: 10px 12px;
+    border-left: 3px solid var(--rose-mid);
+    background: var(--cream);
+    font-weight: 600;
+  }
+  .signatures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 14px;
+  }
+  @media (max-width: 480px) { .signatures { grid-template-columns: 1fr; } }
+  .signatures div {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .contract-print {
+    margin-top: 20px;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font: 700 0.95rem 'Inter', sans-serif;
+    color: #fff;
+    background: linear-gradient(135deg, var(--rose-deep), var(--rose-mid));
+    cursor: pointer;
+  }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .wrap > *:not(.contract) { display: none !important; }
+    .contract { border: 0; box-shadow: none; }
+    .contract summary svg, .contract-print { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -500,6 +586,122 @@
       </a>
     </div>
   </div>
+
+  <h2 class="section-title" id="contrat">Contrat de licence</h2>
+  <details class="contract">
+    <summary>
+      <span>Lire le contrat de licence SCR</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="contract-body">
+      <p class="contract-lead">Toute licence payée est non remboursable, sauf en cas d'arrêt de fonctionnement : le temps restant est alors remboursé. Pour tout autre problème, l'Éditeur dispose d'au moins un mois pour le résoudre avant tout litige.</p>
+
+      <h4>Article 1 — Parties, objet et définitions</h4>
+      <p>Le présent contrat donne au Client le droit d'utiliser le logiciel SCR pendant la durée payée, dans tout pays, aux conditions ci-dessous.</p>
+      <p><strong>Entre :</strong></p>
+      <ul>
+        <li><strong>L'Éditeur</strong> : Jardin d'Éden@SCORPION, [forme juridique], immatriculée au [RCCM n°], siège : [adresse], Cameroun, représentée par [nom, fonction] ;</li>
+        <li><strong>Le Client</strong> : [raison sociale], [forme juridique], immatriculée au [n° d'immatriculation], siège : [adresse, pays], représentée par [nom, fonction].</li>
+      </ul>
+      <p><strong>Objet.</strong> L'Éditeur concède au Client une licence d'utilisation non exclusive et non transférable du logiciel SCR (gestion du recouvrement des dettes et des versements), accessible par applications mobiles, application Windows et serveurs hébergés par l'Éditeur. Aucun droit de propriété sur le logiciel n'est cédé.</p>
+      <p><strong>Définitions.</strong></p>
+      <ul>
+        <li><strong>Licence</strong> : droit d'utiliser SCR pour une durée déterminée, fixée et activée par l'Éditeur.</li>
+        <li><strong>Utilisateurs</strong> : comptes créés par le Client (PDG, DG, DAF, PDG de zone, caisses, commerciaux) et ses propres clients disposant de l'application client.</li>
+        <li><strong>Arrêt de fonctionnement</strong> : impossibilité totale, pour l'ensemble des Utilisateurs du Client, de se connecter ou d'enregistrer un versement, imputable à l'Éditeur, constatée pendant plus de 72 heures consécutives.</li>
+        <li><strong>Autre problème</strong> : tout défaut qui n'est pas un Arrêt de fonctionnement (erreur d'affichage, fonction partiellement indisponible, lenteur, impression, SMS, etc.).</li>
+      </ul>
+
+      <h4>Article 2 — Durée, renouvellement, prix et paiement</h4>
+      <p>La licence court de sa date d'activation à sa date d'expiration, et se paie d'avance.</p>
+      <ol>
+        <li><strong>Durée.</strong> La durée est choisie par le Client à la commande ([1 mois / 3 mois / 6 mois / 12 mois]) et indiquée sur la facture.</li>
+        <li><strong>Expiration.</strong> À la date d'expiration, l'accès du personnel du Client s'arrête automatiquement. Les clients du Client gardent l'accès à leurs reçus et à leur historique. Les données sont conservées.</li>
+        <li><strong>Renouvellement.</strong> Le renouvellement donne lieu à une nouvelle licence et à une nouvelle facture. Il n'y a pas de reconduction tacite.</li>
+        <li><strong>Prix.</strong> [montant] [devise] hors taxes par [période]. Les taxes du pays du Client (TVA, retenues) sont à sa charge, sauf disposition fiscale contraire.</li>
+        <li><strong>Paiement.</strong> Par virement, mobile money ou tout moyen accepté par l'Éditeur. Les frais bancaires et de change sont à la charge du Client. La licence est activée à réception du paiement intégral.</li>
+        <li><strong>Prix futurs.</strong> L'Éditeur peut modifier ses tarifs pour les licences suivantes, en prévenant le Client au moins 30 jours avant. Le prix d'une licence en cours ne change jamais.</li>
+      </ol>
+
+      <h4>Article 3 — Non-remboursement et seule exception</h4>
+      <p>Toute somme payée est définitivement acquise à l'Éditeur et n'est pas remboursable, sauf en cas d'Arrêt de fonctionnement.</p>
+      <ol>
+        <li><strong>Principe.</strong> La licence n'est pas remboursée, ni en tout ni en partie, notamment en cas de non-utilisation, de changement d'avis, de fermeture ou de réorganisation du Client, ou de résiliation à l'initiative du Client.</li>
+        <li><strong>Exception : Arrêt de fonctionnement.</strong> Si SCR cesse de fonctionner au sens de l'article 1 et que l'Éditeur ne rétablit pas le service, le Client est remboursé du <strong>temps restant</strong> de sa licence, calculé au prorata :
+          <div class="formula">Remboursement = Prix payé × (jours restants à partir du début de l'arrêt ÷ jours totaux de la licence)</div>
+        </li>
+        <li><strong>Arrêt définitif.</strong> Si l'Éditeur cesse définitivement d'exploiter SCR, le même calcul s'applique à partir de la date d'arrêt, et l'Éditeur remet au Client une copie de ses données dans un format lisible (par exemple CSV ou PDF).</li>
+        <li><strong>Modalités.</strong> Le remboursement est versé dans les 30 jours suivant la demande écrite du Client, par le moyen de paiement d'origine ou par virement.</li>
+        <li><strong>Exclusions.</strong> Ne constituent pas un Arrêt de fonctionnement : une interruption de moins de 72 heures, une maintenance annoncée, une coupure d'Internet, d'électricité ou d'un opérateur téléphonique chez le Client, un appareil non compatible, une licence expirée, ou une mauvaise utilisation par le Client.</li>
+      </ol>
+
+      <h4>Article 4 — Autres problèmes : un mois de résolution avant tout litige</h4>
+      <p>Pour tout Autre problème, l'Éditeur dispose d'au moins un (1) mois pour le résoudre, et aucun litige ne peut être engagé avant la fin de ce délai.</p>
+      <ol>
+        <li><strong>Signalement.</strong> Le Client signale le problème par écrit (e-mail ou WhatsApp au [numéro / adresse du support]), avec une description et, si possible, des captures d'écran.</li>
+        <li><strong>Accusé de réception.</strong> L'Éditeur accuse réception sous 3 jours ouvrés. Le délai d'un mois court à partir de cet accusé (ou, à défaut, du 4e jour ouvré après le signalement).</li>
+        <li><strong>Résolution.</strong> L'Éditeur corrige le problème ou propose une solution de contournement dans ce délai. Le Client lui apporte la coopération raisonnable nécessaire (informations, accès, tests).</li>
+        <li><strong>Pas de litige pendant le délai.</strong> Pendant ce mois, le Client s'interdit toute action judiciaire, arbitrale ou publique liée à ce problème, sauf mesure urgente pour éviter un dommage imminent.</li>
+        <li><strong>Après le délai.</strong> Si le problème persiste, les parties tentent d'abord un règlement amiable pendant 15 jours (article 6). Le Client peut ensuite engager la procédure de litige prévue à l'article 6.</li>
+        <li><strong>Pas de remboursement.</strong> Un Autre problème n'ouvre pas droit à remboursement (article 3), sauf s'il devient un Arrêt de fonctionnement.</li>
+      </ol>
+
+      <h4>Article 5 — Obligations, données personnelles et responsabilité</h4>
+      <p>L'Éditeur fournit un service sécurisé et maintenu ; le Client reste responsable de ses comptes, de ses données et de l'usage qu'il fait de SCR.</p>
+      <p><strong>Obligations de l'Éditeur.</strong></p>
+      <ul>
+        <li>Héberger SCR, le maintenir et le corriger, et fournir les mises à jour sans frais pendant la licence.</li>
+        <li>Sauvegarder les données chaque jour et protéger les accès (mots de passe chiffrés, cloisonnement par entreprise et par zone).</li>
+        <li>Annoncer les maintenances prévues au moins 24 heures à l'avance.</li>
+      </ul>
+      <p><strong>Obligations du Client.</strong></p>
+      <ul>
+        <li>Garder secrets les mots de passe de ses Utilisateurs et signaler sans délai toute utilisation non autorisée.</li>
+        <li>Installer les mises à jour des applications.</li>
+        <li>Utiliser SCR conformément aux lois de son pays, notamment en matière de recouvrement, de fiscalité et de protection des consommateurs.</li>
+        <li>Ne pas copier, revendre, décompiler ou modifier le logiciel.</li>
+      </ul>
+      <p><strong>Données personnelles.</strong></p>
+      <ul>
+        <li>Le Client est <strong>responsable du traitement</strong> des données de ses clients et de son personnel ; l'Éditeur agit comme <strong>sous-traitant</strong>, uniquement sur instruction du Client et pour faire fonctionner SCR.</li>
+        <li>Les parties respectent la loi applicable dans chaque pays concerné (par exemple la loi camerounaise n° 2024/017 sur la protection des données personnelles, le RGPD pour des personnes situées dans l'Union européenne, ou toute loi équivalente).</li>
+        <li>Les données peuvent être hébergées hors du pays du Client (serveurs Supabase, [région]). Le Client en informe ses propres clients.</li>
+        <li>À la fin du contrat, l'Éditeur remet sur demande une copie des données dans les 30 jours, puis les supprime dans un délai de [90] jours, sauf obligation légale de conservation.</li>
+      </ul>
+      <p><strong>Responsabilité.</strong></p>
+      <ul>
+        <li>L'Éditeur répond des dommages directs prouvés causés par sa faute, dans la limite du <strong>montant payé par le Client au cours des 12 derniers mois</strong>.</li>
+        <li>Il ne répond pas des dommages indirects (perte de chiffre d'affaires, de clientèle, de créances non recouvrées), ni des erreurs de saisie des Utilisateurs.</li>
+        <li>Ces limites ne s'appliquent pas en cas de faute lourde ou intentionnelle, ni lorsque la loi impérative du pays concerné l'interdit.</li>
+        <li><strong>Force majeure</strong> : aucune partie n'est responsable d'un manquement dû à un événement imprévisible et irrésistible (catastrophe, guerre, décision d'une autorité, panne générale d'Internet ou d'un hébergeur). Si elle dure plus de 30 jours, chaque partie peut résilier ; l'article 3, point 2, s'applique alors au temps restant.</li>
+      </ul>
+
+      <h4>Article 6 — Résiliation, droit applicable, litiges et dispositions finales</h4>
+      <p>Le contrat est régi par le droit OHADA et le droit camerounais, sans priver le Client des protections impératives de son propre pays, et tout litige passe d'abord par la résolution (article 4) puis l'amiable, avant l'arbitrage.</p>
+      <ol>
+        <li><strong>Résiliation pour manquement.</strong> En cas de manquement grave d'une partie non corrigé 30 jours après une mise en demeure écrite, l'autre partie peut résilier. Les sommes déjà payées restent régies par l'article 3.</li>
+        <li><strong>Suspension.</strong> L'Éditeur peut suspendre un compte utilisé pour une fraude, une attaque informatique ou une activité illégale, après en avoir informé le Client, sauf urgence.</li>
+        <li><strong>Droit applicable.</strong> Actes uniformes de l'OHADA et, à défaut, droit camerounais. La Convention de Vienne de 1980 sur la vente internationale de marchandises est exclue. Les règles impératives du pays du Client (consommation, données personnelles, fiscalité) restent applicables lorsqu'elles ne peuvent pas être écartées par contrat.</li>
+        <li><strong>Règlement des litiges, dans cet ordre :</strong>
+          <ol type="a">
+            <li>délai de résolution d'un mois pour un Autre problème (article 4) ;</li>
+            <li>négociation amiable pendant 15 jours, à compter d'une notification écrite du désaccord ;</li>
+            <li>à défaut d'accord, <strong>arbitrage</strong> selon le Règlement d'arbitrage de la Cour Commune de Justice et d'Arbitrage (CCJA) de l'OHADA, par un arbitre unique, en langue française, siège à [Douala / Abidjan]. La sentence est définitive et exécutoire dans les pays signataires de la Convention de New York de 1958.</li>
+          </ol>
+        </li>
+        <li><strong>Langue.</strong> Le contrat est rédigé en français. Une traduction peut être fournie ; en cas de différence, la version française prévaut.</li>
+        <li><strong>Notifications.</strong> Par e-mail avec accusé de réception, ou par courrier, aux adresses indiquées en tête du contrat.</li>
+        <li><strong>Intégralité et divisibilité.</strong> Le contrat et ses annexes forment l'accord complet des parties. Si une clause est jugée nulle dans un pays, elle est remplacée par la clause valable la plus proche, et le reste du contrat s'applique.</li>
+        <li><strong>Cession.</strong> Le Client ne peut pas céder le contrat sans l'accord écrit de l'Éditeur.</li>
+      </ol>
+      <p>Fait en deux exemplaires originaux, à [ville], le [date].</p>
+      <div class="signatures">
+        <div><strong>Pour l'Éditeur</strong><span>Nom :</span><span>Fonction :</span><span>Signature et cachet :</span></div>
+        <div><strong>Pour le Client</strong><span>Nom :</span><span>Fonction :</span><span>Signature et cachet :</span></div>
+      </div>
+      <button class="contract-print" type="button" onclick="(function(d){d.open=true;window.print();})(document.querySelector('details.contract'))">Imprimer le contrat</button>
+    </div>
+  </details>
 
   <h2 class="section-title">Historique</h2>
   <div class="history">
