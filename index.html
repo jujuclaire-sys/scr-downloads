@@ -396,6 +396,16 @@
     font-weight: 700;
   }
 
+  .hero-actions { margin-top: 18px; display: flex; justify-content: center; }
+  .contract-link {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    text-decoration: none; font-weight: 700; font-size: 0.95rem;
+    padding: 11px 18px; border-radius: 12px;
+    color: var(--rose-deep); background: var(--card);
+    border: 2px solid var(--rose-mid);
+  }
+  .contract-link svg { width: 18px; height: 18px; }
+  .contract-link.in-card { display: flex; }
   .contract {
     background: var(--card);
     border: 1px solid var(--border);
@@ -476,6 +486,7 @@
     cursor: pointer;
   }
   @media print {
+    .hero, .contract-link { display: none !important; }
     body { background: #fff; padding: 0; }
     .wrap > *:not(.contract) { display: none !important; }
     .contract { border: 0; box-shadow: none; }
@@ -495,6 +506,10 @@
     <h1 class="name">Jardin d'Éden</h1>
     <div class="company">@SCORPION</div>
     <p class="tagline">Téléchargez l'application sur votre téléphone Android. Choisissez la version qui correspond à votre rôle ci-dessous.</p>
+    <div class="hero-actions"><a class="contract-link" href="#contrat" onclick="var d=document.querySelector('details.contract');d.open=true;d.scrollIntoView({behavior:'smooth',block:'start'});return false;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>
+        Contrat de licence
+      </a></div>
   </header>
 
   <h2 class="section-title first">Nos produits</h2>
@@ -583,6 +598,10 @@
       <a class="contact-link whatsapp" href="https://wa.me/237670477334" target="_blank" rel="noopener">
         <span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-11.8 7.8L3 21l1.7-6.2A8.5 8.5 0 1 1 21 11.5Z"/></svg></span>
         WhatsApp : +237 670 477 334
+      </a>
+      <a class="contract-link in-card" href="#contrat" onclick="var d=document.querySelector('details.contract');d.open=true;d.scrollIntoView({behavior:'smooth',block:'start'});return false;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>
+        Contrat de licence
       </a>
     </div>
   </div>
@@ -716,5 +735,6 @@
 
   <footer>Jardin d'Éden@SCORPION</footer>
 </div>
+<script>if(location.hash==='#contrat'){var d=document.querySelector('details.contract');if(d){d.open=true;}}</script>
 </body>
 </html>
